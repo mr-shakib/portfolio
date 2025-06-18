@@ -1,4 +1,3 @@
-
 const texts = [
     "App Developer",
     "Problem Solver",
@@ -195,8 +194,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize theme based on localStorage or system preference
     const savedTheme = localStorage.getItem('theme');
-    const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-    if (savedTheme === 'light' || (!savedTheme && prefersLight)) {
+    // Always default to dark unless user explicitly chose light
+    if (savedTheme === 'light') {
         applyTheme('light');
     } else {
         applyTheme('dark');
