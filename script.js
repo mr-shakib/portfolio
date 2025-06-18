@@ -392,19 +392,152 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Clone services cards for continuous scrolling
-    const tickerTrack = document.querySelector('.ticker-track');
-    if (tickerTrack) {
-        const originalItems = tickerTrack.innerHTML;
-        tickerTrack.innerHTML = originalItems + originalItems; // Duplicate content
+    // --- Codeforces API Integration ---
+    async function fetchCodeforcesData() {
+        const username = 'mr-shakib'; // Fixed username to match profile link
+        const apiUrl = `https://codeforces.com/api/user.info?handles=${username}`;
+        const submissionsUrl = `https://codeforces.com/api/user.status?handle=${username}&from=1&count=1000`;
+
+        try {
+            console.log('Fetching Codeforces data for:', username);
+
+            // Fetch user info
+            const userResponse = await fetch(apiUrl);
+            const userData = await userResponse.json();
+
+            console.log('User data response:', userData);
+
+            if (userData.status !== 'OK') {
+                throw new Error(`API Error: ${userData.comment || 'Failed to fetch user data'}`);
+            }
+
+            const user = userData.result[0];
+
+            // Fetch submissions to count solved problems
+            const submissionsResponse = await fetch(submissionsUrl);
+            const submissionsData = await submissionsResponse.json();
+
+            console.log('Submissions data response status:', submissionsData.status);
+
+            let solvedProblems = 0;
+            if (submissionsData.status === 'OK') {
+                const solvedSet = new Set();
+                submissionsData.result.forEach(submission => {
+                    if (submission.verdict === 'OK') {
+                        solvedSet.add(`${submission.problem.contestId}${submission.problem.index}`);
+                    }
+                });
+                solvedProblems = solvedSet.size;
+            }
+
+            console.log('Solved problems count:', solvedProblems);
+
+            // Update the card with live data
+            updateCodeforcesCard(user, solvedProblems);
+        } catch (error) {
+            console.error('Error fetching Codeforces data:', error);
+            // Show error state in the card
+            const errorElement = document.querySelector('#codeforces-error');
+            const loadingElement = document.querySelector('#cf-loading');
+            const contentElement = document.querySelector('#cf-content');
+
+            if (loadingElement) {
+                loadingElement.classList.add('hidden');
+            }
+            if (contentElement) {
+                contentElement.classList.add('hidden');
+            }
+            if (errorElement) {
+                errorElement.classList.remove('hidden');
+            }
+        }
     }
 
-    // Optional: Pause animation on hover
-    document.querySelector('.services-ticker')?.addEventListener('mouseenter', () => {
-        document.querySelector('.ticker-track').style.animationPlayState = 'paused';
-    });
+    function updateCodeforcesCard(user, solvedProblems) {
+        // Update max rating
+        const maxRatingElement = document.querySelector('#cf-max-rating');
+        const currentRatingElement = document.querySelector('#cf-current-rating');
+        const rankElement = document.querySelector('#cf-rank');
+        const solvedElement = document.querySelector('#cf-solved');
+        const loadingElement = document.querySelector('#cf-loading');
+        const lastUpdatedElement = document.querySelector('#cf-last-updated');
 
-    document.querySelector('.services-ticker')?.addEventListener('mouseleave', () => {
-        document.querySelector('.ticker-track').style.animationPlayState = 'running';
-    });
+        if (maxRatingElement) {
+            maxRatingElement.textContent = user.maxRating || user.rating || 'Unrated';
+        }
+
+        if (currentRatingElement) {
+            currentRatingElement.textContent = user.rating || 'Unrated';
+        }
+
+        if (rankElement) {
+            const rank = user.maxRank || user.rank || 'Unrated';
+            rankElement.textContent = rank;
+            rankElement.className = `font-bold ${getRankColor(rank)}`;
+        }
+
+        if (solvedElement) {
+            solvedElement.textContent = `${solvedProblems}+`;
+        }
+
+        if (lastUpdatedElement) {
+            const now = new Date();
+            lastUpdatedElement.textContent = now.toLocaleTimeString();
+        }
+
+        // Hide loading indicator
+        if (loadingElement) {
+            loadingElement.classList.add('hidden');
+        }
+
+        // Show the updated content
+        const contentElement = document.querySelector('#cf-content');
+        if (contentElement) {
+            contentElement.classList.remove('hidden');
+        }
+    }
+
+    function getRankColor(rank) {
+        const rankColors = {
+            'newbie': 'text-gray-500',
+            'pupil': 'text-green-500',
+            'specialist': 'text-cyan-500',
+            'expert': 'text-blue-500',
+            'candidate master': 'text-purple-500',
+            'master': 'text-orange-500',
+            'international master': 'text-orange-600',
+            'grandmaster': 'text-red-500',
+            'international grandmaster': 'text-red-600',
+            'legendary grandmaster': 'text-red-700'
+        }; return rankColors[rank?.toLowerCase()] || 'text-gray-500';
+    }
+
+    // Initial fetch for Codeforces data
+    fetchCodeforcesData();
+
+    // Add refresh button functionality
+    const refreshButton = document.querySelector('#cf-refresh');
+    if (refreshButton) {
+        refreshButton.addEventListener('click', () => {
+            // Reset card state
+            const loadingElement = document.querySelector('#cf-loading');
+            const contentElement = document.querySelector('#cf-content');
+            const errorElement = document.querySelector('#codeforces-error');
+
+            if (loadingElement) loadingElement.classList.remove('hidden');
+            if (contentElement) contentElement.classList.add('hidden');
+            if (errorElement) errorElement.classList.add('hidden');
+
+            // Add spinning animation to refresh button
+            refreshButton.querySelector('i').classList.add('fa-spin');
+
+            // Fetch new data
+            fetchCodeforcesData().finally(() => {
+                // Remove spinning animation
+                setTimeout(() => {
+                    refreshButton.querySelector('i').classList.remove('fa-spin');
+                }, 500);
+            });
+        });
+    }
 });
