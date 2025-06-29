@@ -19,8 +19,8 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: { light: '#0ea5e9', DEFAULT: '#38bdf8', dark: '#7dd3fc' }, // sky-600, sky-500, sky-400
-                        secondary: { light: '#f59e0b', DEFAULT: '#fbbf24', dark: '#fcd34d' }, // amber-500, amber-400, amber-300
+                        primary: { light: '#0ea5e9', DEFAULT: '#38bdf8', dark: '#7dd3fc' }, 
+                        secondary: { light: '#f59e0b', DEFAULT: '#fbbf24', dark: '#fcd34d' }, 
                         darkBg: '#0f172a', lightBg: '#f8fafc',
                         darkText: '#e2e8f0', lightText: '#1e293b',
                         darkCard: '#1e293b', lightCard: '#ffffff',
@@ -635,235 +635,408 @@
         </div>
 
         <!-- Projects -->
-        <section id="projects" class="py-20 ">
-            <div class="container mx-auto px-6">
-                <div class="reveal text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">My Projects</h2>
-                    <p class="text-lg text-slate-400 dark:text-slate-600 max-w-xl mx-auto">Here are some of the things
-                        I've built.</p>
+        <section id="projects" class="py-20 relative overflow-hidden">
+            <!-- Background decoration -->
+            <div class="absolute top-0 left-0 w-full h-full opacity-5">
+                <div class="absolute top-20 left-10 w-32 h-32 bg-blue-500 rounded-full blur-3xl"></div>
+                <div class="absolute bottom-20 right-10 w-40 h-40 bg-purple-500 rounded-full blur-3xl"></div>
+            </div>
+            
+            <div class="container mx-auto px-6 relative z-10">
+                <!-- Enhanced Header -->
+                <div class="text-center mb-20">
+                    <div class="inline-flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-rocket text-white text-xl"></i>
+                        </div>
+                        <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text text-transparent">
+                            Featured Projects
+                        </h2>
+                    </div>
+                    <p class="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed mb-8">
+                        A collection of projects that showcase my technical expertise and problem-solving approach
+                    </p>
+                    <div class="w-32 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
                 </div>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
-                    <!-- Project 1: DIU BusBuddy -->
-                    <div class="reveal-scale bg-slate-900 dark:bg-white rounded-xl shadow-2xl overflow-hidden group">
-                        <img src="https://placehold.co/600x400/1e293b/e2e8f0?text=DIU+BusBuddy&font=Inter"
-                            alt="DIU BusBuddy" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3
-                                class="text-xl font-semibold mb-2 text-primary group-hover:text-primary-light transition-colors">
-                                📱 DIU BusBuddy</h3>
-                            <p class="text-sm text-slate-400 dark:text-slate-600 mb-4 min-h-[80px]">
-                                Flutter app for university bus scheduling. Solves the problem of students missing buses
-                                or not knowing schedules.
-                            </p>
-                            <p class="text-sm font-semibold text-slate-300 dark:text-slate-700 mb-1">Key Features:</p>
-                            <ul
-                                class="list-disc list-inside text-xs text-slate-400 dark:text-slate-600 mb-3 min-h-[60px]">
-                                <li>Real-time tracking</li>
-                                <li>Route information</li>
-                                <li>Seat availability (conceptual)</li>
-                            </ul>
-                            <div class="mb-4 flex flex-wrap gap-2">
-                                <span class="text-xs bg-primary/20 text-primary px-2 py-1 rounded-full">React</span>
-                                <span class="text-xs bg-primary/20 text-primary px-2 py-1 rounded-full">Firebase</span>
+
+                <!-- Project Showcase Grid -->
+                <div class="space-y-24">
+                    <!-- Featured Project 1: DIU BusBuddy -->
+                    <div class="project-showcase group">
+                        <div class="grid lg:grid-cols-2 gap-12 items-center">
+                            <div class="project-content order-2 lg:order-1">
+                                <div class="project-category mb-4">
+                                    <span class="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/20 rounded-full text-blue-300 text-sm font-medium">
+                                        <i class="fas fa-mobile-alt"></i>
+                                        Mobile Application
+                                    </span>
+                                </div>
+                                <h3 class="project-title text-3xl md:text-4xl font-bold text-white mb-4 group-hover:text-blue-300 transition-colors">
+                                    DIU BusBuddy
+                                </h3>
+                                <div class="project-description bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-xl p-6 mb-6">
+                                    <p class="text-slate-300 text-lg leading-relaxed mb-4">
+                                        A comprehensive Flutter application designed to revolutionize university transportation by solving the common problem of students missing buses or being unaware of schedules.
+                                    </p>
+                                    <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                        <div class="feature-item flex items-start gap-3">
+                                            <i class="fas fa-map-marker-alt text-blue-400 mt-1"></i>
+                                            <span class="text-slate-400">Real-time GPS tracking</span>
+                                        </div>
+                                        <div class="feature-item flex items-start gap-3">
+                                            <i class="fas fa-route text-green-400 mt-1"></i>
+                                            <span class="text-slate-400">Optimized route planning</span>
+                                        </div>
+                                        <div class="feature-item flex items-start gap-3">
+                                            <i class="fas fa-users text-purple-400 mt-1"></i>
+                                            <span class="text-slate-400">Seat availability checker</span>
+                                        </div>
+                                        <div class="feature-item flex items-start gap-3">
+                                            <i class="fas fa-bell text-yellow-400 mt-1"></i>
+                                            <span class="text-slate-400">Smart notifications</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="project-tech mb-6">
+                                    <div class="flex flex-wrap gap-3">
+                                        <span class="tech-tag">Flutter</span>
+                                        <span class="tech-tag">Firebase</span>
+                                        <span class="tech-tag">Real-time DB</span>
+                                        <span class="tech-tag">Google Maps API</span>
+                                    </div>
+                                </div>
+                                <div class="project-links flex gap-4">
+                                    <a href="https://github.com/mr-shakib/DIU-Bus-Buddy.git" target="_blank" 
+                                       class="project-link-primary">
+                                        <i class="fab fa-github mr-2"></i>
+                                        View Code
+                                    </a>
+                                    <a href="#" class="project-link-secondary">
+                                        <i class="fas fa-external-link-alt mr-2"></i>
+                                        Live Demo
+                                    </a>
+                                </div>
                             </div>
-                            <div class="flex justify-between items-center mb-3">
-                                <div class="space-x-3">
-                                    <a href="https://github.com/mr-shakib/DIU-Bus-Buddy.git" target="_blank"
-                                        rel="noopener noreferrer"
-                                        class="text-secondary hover:text-secondary-light transition-colors"><i
-                                            class="fab fa-github mr-1"></i> GitHub</a>
-                                    <a href="https://github.com/mr-shakib/DIU-Bus-Buddy.git" target="_blank"
-                                        rel="noopener noreferrer"
-                                        class="text-secondary hover:text-secondary-light transition-colors"><i
-                                            class="fas fa-external-link-alt mr-1"></i> Live Demo</a>
+                            <div class="project-image order-1 lg:order-2">
+                                <div class="relative group-hover:scale-105 transition-transform duration-500">
+                                    <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity"></div>
+                                    <img src="assets/diu_busbuddy.png" 
+                                         alt="DIU BusBuddy Application" 
+                                         class="relative w-full h-auto rounded-2xl shadow-2xl border border-slate-700/50">
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Project 2: DIU LeaderBoard -->
-                    <div class="reveal-scale bg-slate-900 dark:bg-white rounded-xl shadow-2xl overflow-hidden group"
-                        style="transition-delay: 0.1s;">
-                        <img src="https://placehold.co/600x400/1e293b/e2e8f0?text=DIU+LeaderBoard&font=Inter"
-                            alt="DIU LeaderBoard" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3
-                                class="text-xl font-semibold mb-2 text-primary group-hover:text-primary-light transition-colors">
-                                🏆 DIU LeaderBoard</h3>
-                            <p class="text-sm text-slate-400 dark:text-slate-600 mb-4 min-h-[80px]">
-                                Student ranking system for Daffodil International University. Helps students track
-                                academic progress and compare with peers.
-                            </p>
-                            <p class="text-sm font-semibold text-slate-300 dark:text-slate-700 mb-1">Key Features:</p>
-                            <ul
-                                class="list-disc list-inside text-xs text-slate-400 dark:text-slate-600 mb-3 min-h-[60px]">
-                                <li>CGPA & Batch-wise comparison</li>
-                                <li>Retake suggestion feature</li>
-                            </ul>
-                            <div class="mb-4 flex flex-wrap gap-2">
-                                <span
-                                    class="text-xs bg-primary/20 text-primary px-2 py-1 rounded-full">JavaScript</span>
-                                <span class="text-xs bg-primary/20 text-primary px-2 py-1 rounded-full">HTML</span>
-                                <span class="text-xs bg-primary/20 text-primary px-2 py-1 rounded-full">CSS</span>
+
+                    <!-- Featured Project 2: DIU LeaderBoard -->
+                    <div class="project-showcase group">
+                        <div class="grid lg:grid-cols-2 gap-12 items-center">
+                            <div class="project-image">
+                                <div class="relative group-hover:scale-105 transition-transform duration-500">
+                                    <div class="absolute inset-0 bg-gradient-to-r from-green-500 to-blue-600 rounded-2xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity"></div>
+                                    <img src="assets/diu_leaderboard.png" 
+                                         alt="DIU LeaderBoard System" 
+                                         class="relative w-full h-auto rounded-2xl shadow-2xl border border-slate-700/50">
+                                </div>
                             </div>
-                            <div class="flex justify-between items-center mb-3">
-                                <div class="space-x-3">
-                                    <a href="https://github.com/bitstreamofficial/DIU_LeaderBoard.git" target="_blank"
-                                        rel="noopener noreferrer"
-                                        class="text-secondary hover:text-secondary-light transition-colors"><i
-                                            class="fab fa-github mr-1"></i> GitHub</a>
-                                    <a href="https://github.com/bitstreamofficial/DIU_LeaderBoard/releases/tag/v1.0.0-release"
-                                        target="_blank" rel="noopener noreferrer"
-                                        class="text-secondary hover:text-secondary-light transition-colors"><i
-                                            class="fas fa-external-link-alt mr-1"></i> Live Demo</a>
+                            <div class="project-content">
+                                <div class="project-category mb-4">
+                                    <span class="inline-flex items-center gap-2 px-4 py-2 bg-green-500/20 rounded-full text-green-300 text-sm font-medium">
+                                        <i class="fas fa-trophy"></i>
+                                        Mobile Application
+                                    </span>
+                                </div>
+                                <h3 class="project-title text-3xl md:text-4xl font-bold text-white mb-4 group-hover:text-green-300 transition-colors">
+                                    DIU LeaderBoard
+                                </h3>
+                                <div class="project-description bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-xl p-6 mb-6">
+                                    <p class="text-slate-300 text-lg leading-relaxed mb-4">
+                                        Advanced student ranking system that provides comprehensive academic insights and performance analytics for Daffodil International University students.
+                                    </p>
+                                    <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                        <div class="feature-item flex items-start gap-3">
+                                            <i class="fas fa-chart-bar text-green-400 mt-1"></i>
+                                            <span class="text-slate-400">CGPA analysis & trends</span>
+                                        </div>
+                                        <div class="feature-item flex items-start gap-3">
+                                            <i class="fas fa-users text-blue-400 mt-1"></i>
+                                            <span class="text-slate-400">Batch-wise comparison</span>
+                                        </div>
+                                        <div class="feature-item flex items-start gap-3">
+                                            <i class="fas fa-lightbulb text-yellow-400 mt-1"></i>
+                                            <span class="text-slate-400">Smart retake suggestions</span>
+                                        </div>
+                                        <div class="feature-item flex items-start gap-3">
+                                            <i class="fas fa-medal text-purple-400 mt-1"></i>
+                                            <span class="text-slate-400">Achievement tracking</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="project-tech mb-6">
+                                    <div class="flex flex-wrap gap-3">
+                                        <span class="tech-tag">JavaScript</span>
+                                        <span class="tech-tag">HTML5</span>
+                                        <span class="tech-tag">CSS3</span>
+                                        <span class="tech-tag">Chart.js</span>
+                                    </div>
+                                </div>
+                                <div class="project-links flex gap-4">
+                                    <a href="https://github.com/bitstreamofficial/DIU_LeaderBoard.git" target="_blank" 
+                                       class="project-link-primary">
+                                        <i class="fab fa-github mr-2"></i>
+                                        View Code
+                                    </a>
+                                    <a href="https://github.com/bitstreamofficial/DIU_LeaderBoard/releases/tag/v1.0.0-release" target="_blank" 
+                                       class="project-link-secondary">
+                                        <i class="fas fa-download mr-2"></i>
+                                        Download
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Project 3: ScheduLearn -->
-                    <div class="reveal-scale bg-slate-900 dark:bg-white rounded-xl shadow-2xl overflow-hidden group"
-                        style="transition-delay: 0.2s;">
-                        <img src="https://placehold.co/600x400/1e293b/e2e8f0?text=ScheduLearn&font=Inter"
-                            alt="ScheduLearn" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3
-                                class="text-xl font-semibold mb-2 text-primary group-hover:text-primary-light transition-colors">
-                                📊 ScheduLearn</h3>
-                            <p class="text-sm text-slate-400 dark:text-slate-600 mb-4 min-h-[80px]">
-                                OS scheduling algorithm visualizer. Aids students in understanding RR, FCFS, SJF,
-                                Priority Scheduling.
-                            </p>
-                            <p class="text-sm font-semibold text-slate-300 dark:text-slate-700 mb-1">Key Features:</p>
-                            <ul
-                                class="list-disc list-inside text-xs text-slate-400 dark:text-slate-600 mb-3 min-h-[60px]">
-                                <li>Interactive visualization</li>
-                                <li>Supports multiple algorithms</li>
-                            </ul>
-                            <div class="mb-4 flex flex-wrap gap-2">
-                                <span class="text-xs bg-primary/20 text-primary px-2 py-1 rounded-full">HTML</span>
-                                <span class="text-xs bg-primary/20 text-primary px-2 py-1 rounded-full">CSS</span>
-                                <span
-                                    class="text-xs bg-primary/20 text-primary px-2 py-1 rounded-full">JavaScript</span>
+
+                    <!-- Featured Project 3: DIU Exam Routine Website -->
+                    <div class="project-showcase group">
+                        <div class="grid lg:grid-cols-2 gap-12 items-center">
+                            <div class="project-content order-2 lg:order-1">
+                                <div class="project-category mb-4">
+                                    <span class="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/20 rounded-full text-blue-300 text-sm font-medium">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        Web Application
+                                    </span>
+                                </div>
+                                <h3 class="project-title text-3xl md:text-4xl font-bold text-white mb-4 group-hover:text-blue-300 transition-colors">
+                                    DIU Exam Routine Website
+                                </h3>
+                                <div class="project-description bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-xl p-6 mb-6">
+                                    <p class="text-slate-300 text-lg leading-relaxed mb-4">
+                                        A modern, responsive exam routine platform crafted for DIU students to easily access their CSE & SWE exam schedules—clean, searchable, and mobile-ready.
+                                    </p>
+                                    <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                        <div class="feature-item flex items-start gap-3">
+                                            <i class="fas fa-search text-green-400 mt-1"></i>
+                                            <span class="text-slate-400">Advanced search by course, ID, teacher, or batch</span>
+                                        </div>
+                                        <div class="feature-item flex items-start gap-3">
+                                            <i class="fas fa-filter text-blue-400 mt-1"></i>
+                                            <span class="text-slate-400">Smart filtering by Batch ➝ Section ➝ Date</span>
+                                        </div>
+                                        <div class="feature-item flex items-start gap-3">
+                                            <i class="fas fa-calendar-day text-yellow-400 mt-1"></i>
+                                            <span class="text-slate-400">Date-wise exam grouping for clarity</span>
+                                        </div>
+                                        <div class="feature-item flex items-start gap-3">
+                                            <i class="fas fa-chair text-purple-400 mt-1"></i>
+                                            <span class="text-slate-400">Includes room & seat info</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="project-tech mb-6">
+                                    <div class="flex flex-wrap gap-3">
+                                        <span class="tech-tag">HTML5</span>
+                                        <span class="tech-tag">CSS3</span>
+                                        <span class="tech-tag">JavaScript</span>
+                                        <span class="tech-tag">Vercel</span>
+                                    </div>
+                                </div>
+                                <div class="project-links flex gap-4">
+                                    <a href="https://github.com/bitstreamofficial/DIU_Exam_Routine" target="_blank" 
+                                    class="project-link-primary">
+                                        <i class="fab fa-github mr-2"></i>
+                                        View Code
+                                    </a>
+                                    <a href="https://diu-exam-routine.vercel.app" target="_blank" 
+                                    class="project-link-secondary">
+                                        <i class="fas fa-external-link-alt mr-2"></i>
+                                        Live Site
+                                    </a>
+                                </div>
                             </div>
-                            <div class="flex justify-between items-center mb-3">
-                                <div class="space-x-3">
-                                    <a href="#" target="_blank" rel="noopener noreferrer"
-                                        class="text-secondary hover:text-secondary-light transition-colors"><i
-                                            class="fab fa-github mr-1"></i> GitHub</a>
-                                    <a href="#" target="_blank" rel="noopener noreferrer"
-                                        class="text-secondary hover:text-secondary-light transition-colors"><i
-                                            class="fas fa-external-link-alt mr-1"></i> Live Demo</a>
+                            <div class="project-image order-1 lg:order-2">
+                                <div class="relative group-hover:scale-105 transition-transform duration-500">
+                                    <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-2xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity"></div>
+                                    <img src="assets/diu_examroutine.png" 
+                                        alt="DIU Exam Routine Website" 
+                                        class="relative w-full h-auto rounded-2xl shadow-2xl border border-slate-700/50">
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Project 4: Student Management System -->
-                    <div class="reveal-scale bg-slate-900 dark:bg-white rounded-xl shadow-2xl overflow-hidden group"
-                        style="transition-delay: 0.0s;"> <!-- Reset delay or adjust as needed -->
-                        <img src="https://placehold.co/600x400/1e293b/e2e8f0?text=Student+Mgmt&font=Inter"
-                            alt="Student Management System" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3
-                                class="text-xl font-semibold mb-2 text-primary group-hover:text-primary-light transition-colors">
-                                📚 Student Management System</h3>
-                            <p class="text-sm text-slate-400 dark:text-slate-600 mb-4 min-h-[80px]">
-                                A comprehensive system for managing student activities and records.
-                            </p>
-                            <p class="text-sm font-semibold text-slate-300 dark:text-slate-700 mb-1">Key Features:</p>
-                            <ul
-                                class="list-disc list-inside text-xs text-slate-400 dark:text-slate-600 mb-3 min-h-[60px]">
-                                <li>Role-based access</li>
-                                <li>Task tracking & proof upload</li>
-                                <li>Point/penalty system</li>
-                            </ul>
-                            <div class="mb-4 flex flex-wrap gap-2">
-                                <span class="text-xs bg-primary/20 text-primary px-2 py-1 rounded-full">Flutter</span>
-                                <span class="text-xs bg-primary/20 text-primary px-2 py-1 rounded-full">Firebase</span>
+
+
+                    <!-- Featured Project 4: Sign Language Translator -->
+                    <div class="project-showcase group">
+                        <div class="grid lg:grid-cols-2 gap-12 items-center">
+                            <div class="project-image">
+                                <div class="relative group-hover:scale-105 transition-transform duration-500">
+                                    <div class="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-600 rounded-2xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity"></div>
+                                    <img src="https://placehold.co/600x400/1e293b/e2e8f0?text=Sign+Language+AI&font=Inter" 
+                                         alt="Sign Language Translator" 
+                                         class="relative w-full h-auto rounded-2xl shadow-2xl border border-slate-700/50">
+                                </div>
                             </div>
-                            <div class="flex justify-between items-center mb-3">
-                                <div class="space-x-3">
-                                    <a href="https://github.com/bitstreamofficial/schedulearn.git" target="_blank"
-                                        rel="noopener noreferrer"
-                                        class="text-secondary hover:text-secondary-light transition-colors"><i
-                                            class="fab fa-github mr-1"></i> GitHub</a>
-                                    <a href="https://schedulearn.vercel.app/" target="_blank" rel="noopener noreferrer"
-                                        class="text-secondary hover:text-secondary-light transition-colors"><i
-                                            class="fas fa-external-link-alt mr-1"></i> Live Demo</a>
+                            <div class="project-content">
+                                <div class="project-category mb-4">
+                                    <span class="inline-flex items-center gap-2 px-4 py-2 bg-purple-500/20 rounded-full text-purple-300 text-sm font-medium">
+                                        <i class="fas fa-brain"></i>
+                                        AI/ML Project
+                                    </span>
+                                </div>
+                                <h3 class="project-title text-3xl md:text-4xl font-bold text-white mb-4 group-hover:text-purple-300 transition-colors">
+                                    Sign Language Translator
+                                    <span class="text-lg text-purple-400 font-medium">(Thesis Project)</span>
+                                </h3>
+                                <div class="project-description bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-xl p-6 mb-6">
+                                    <p class="text-slate-300 text-lg leading-relaxed mb-4">
+                                        Innovative mobile application leveraging computer vision and machine learning to bridge communication gaps by translating sign language gestures into speech and text in real-time.
+                                    </p>
+                                    <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                        <div class="feature-item flex items-start gap-3">
+                                            <i class="fas fa-video text-red-400 mt-1"></i>
+                                            <span class="text-slate-400">Real-time gesture recognition</span>
+                                        </div>
+                                        <div class="feature-item flex items-start gap-3">
+                                            <i class="fas fa-microphone text-blue-400 mt-1"></i>
+                                            <span class="text-slate-400">Text-to-speech conversion</span>
+                                        </div>
+                                        <div class="feature-item flex items-start gap-3">
+                                            <i class="fas fa-robot text-green-400 mt-1"></i>
+                                            <span class="text-slate-400">TensorFlow Lite integration</span>
+                                        </div>
+                                        <div class="feature-item flex items-start gap-3">
+                                            <i class="fas fa-mobile-alt text-yellow-400 mt-1"></i>
+                                            <span class="text-slate-400">Cross-platform compatibility</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="project-tech mb-6">
+                                    <div class="flex flex-wrap gap-3">
+                                        <span class="tech-tag">Flutter</span>
+                                        <span class="tech-tag">TensorFlow Lite</span>
+                                        <span class="tech-tag">OpenCV</span>
+                                        <span class="tech-tag">Python</span>
+                                        <span class="tech-tag">Firebase ML</span>
+                                    </div>
+                                </div>
+                                <div class="project-links flex gap-4">
+                                    <a href="#" class="project-link-primary opacity-50 cursor-not-allowed">
+                                        <i class="fas fa-clock mr-2"></i>
+                                        In Development
+                                    </a>
+                                    <a href="#" class="project-link-secondary opacity-50 cursor-not-allowed">
+                                        <i class="fas fa-file-alt mr-2"></i>
+                                        Research Paper
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Project 5: Sign Language Translator -->
-                    <div class="reveal-scale bg-slate-900 dark:bg-white rounded-xl shadow-2xl overflow-hidden group"
-                        style="transition-delay: 0.1s;">
-                        <img src="https://placehold.co/600x400/1e293b/e2e8f0?text=Sign+Translator&font=Inter"
-                            alt="Sign Language Translator" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3
-                                class="text-xl font-semibold mb-2 text-primary group-hover:text-primary-light transition-colors">
-                                🔠 Sign Language Translator (Thesis)</h3>
-                            <p class="text-sm text-slate-400 dark:text-slate-600 mb-4 min-h-[80px]">
-                                Mobile app using camera to recognize sign language in real time and convert to
-                                speech/text.
-                            </p>
-                            <p class="text-sm font-semibold text-slate-300 dark:text-slate-700 mb-1">Key Features:</p>
-                            <ul
-                                class="list-disc list-inside text-xs text-slate-400 dark:text-slate-600 mb-3 min-h-[60px]">
-                                <li>Real-time recognition</li>
-                                <li>ML model integration (TensorFlow Lite)</li>
-                            </ul>
-                            <div class="mb-4 flex flex-wrap gap-2">
-                                <span class="text-xs bg-primary/20 text-primary px-2 py-1 rounded-full">Python</span>
-                                <span class="text-xs bg-primary/20 text-primary px-2 py-1 rounded-full">Keras</span>
-                                <span class="text-xs bg-primary/20 text-primary px-2 py-1 rounded-full">OpenCV</span>
-                                <span class="text-xs bg-primary/20 text-primary px-2 py-1 rounded-full">Android</span>
-                                <span class="text-xs bg-primary/20 text-primary px-2 py-1 rounded-full">TensorFlow
-                                    Lite</span>
+                </div>
+
+                <!-- Additional Projects Grid -->
+                <div class="mt-24">
+                    <h3 class="text-2xl font-bold text-center text-white mb-12">Other Notable Projects</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- ScheduLearn -->
+                        <div class="additional-project-card group">
+                            <div class="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-green-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                            <div class="relative p-6">
+                                <div class="flex items-center justify-between mb-4">
+                                    <i class="fas fa-chart-gantt text-2xl text-blue-400"></i>
+                                    <span class="px-3 py-1 bg-blue-500/20 rounded-full text-blue-300 text-xs font-medium">Educational Tool</span>
+                                </div>
+                                <h4 class="text-xl font-semibold text-white mb-3 group-hover:text-blue-300 transition-colors">
+                                    ScheduLearn
+                                </h4>
+                                <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                                    Interactive OS scheduling algorithm visualizer helping students understand FCFS, SJF, RR, and Priority Scheduling through dynamic animations.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="text-xs bg-slate-700 text-slate-300 px-2 py-1 rounded">HTML5</span>
+                                    <span class="text-xs bg-slate-700 text-slate-300 px-2 py-1 rounded">CSS3</span>
+                                    <span class="text-xs bg-slate-700 text-slate-300 px-2 py-1 rounded">JavaScript</span>
+                                </div>
+                                <div class="flex gap-3">
+                                    <a href="https://github.com/bitstreamofficial/schedulearn.git" class="text-sm text-blue-400 hover:text-blue-300 transition-colors">
+                                        <i class="fab fa-github mr-1"></i> Code
+                                    </a>
+                                    <a href="https://schedulearn.vercel.app/" class="text-sm text-green-400 hover:text-green-300 transition-colors">
+                                        <i class="fas fa-external-link-alt mr-1"></i> Demo
+                                    </a>
+                                </div>
                             </div>
-                            <div class="flex justify-between items-center mb-3">
-                                <div class="space-x-3">
-                                    <a href="#" target="_blank" rel="noopener noreferrer"
-                                        class="text-secondary hover:text-secondary-light transition-colors"><i
-                                            class="fab fa-github mr-1"></i> GitHub</a>
+                        </div>
+
+                        <!-- Student Management System -->
+                        <div class="additional-project-card group">
+                            <div class="absolute inset-0 bg-gradient-to-r from-green-500/10 to-blue-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                            <div class="relative p-6">
+                                <div class="flex items-center justify-between mb-4">
+                                    <i class="fas fa-users-cog text-2xl text-green-400"></i>
+                                    <span class="px-3 py-1 bg-green-500/20 rounded-full text-green-300 text-xs font-medium">Management System</span>
+                                </div>
+                                <h4 class="text-xl font-semibold text-white mb-3 group-hover:text-green-300 transition-colors">
+                                    Student Management System
+                                </h4>
+                                <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                                    Comprehensive Flutter application with role-based access control, task tracking, and point/penalty system for educational institutions.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="text-xs bg-slate-700 text-slate-300 px-2 py-1 rounded">Flutter</span>
+                                    <span class="text-xs bg-slate-700 text-slate-300 px-2 py-1 rounded">Firebase</span>
+                                    <span class="text-xs bg-slate-700 text-slate-300 px-2 py-1 rounded">Provider</span>
+                                </div>
+                                <div class="flex gap-3">
+                                    <a href="#" class="text-sm text-blue-400 hover:text-blue-300 transition-colors opacity-50">
+                                        <i class="fab fa-github mr-1"></i> Private
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Codeforces Tracker -->
+                        <div class="additional-project-card group">
+                            <div class="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                            <div class="relative p-6">
+                                <div class="flex items-center justify-between mb-4">
+                                    <i class="fas fa-code text-2xl text-purple-400"></i>
+                                    <span class="px-3 py-1 bg-purple-500/20 rounded-full text-purple-300 text-xs font-medium">Analytics Platform</span>
+                                </div>
+                                <h4 class="text-xl font-semibold text-white mb-3 group-hover:text-purple-300 transition-colors">
+                                    Codeforces Tracker
+                                </h4>
+                                <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                                    Advanced analytics platform for competitive programmers to track progress, analyze performance patterns, and discover improvement opportunities.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="text-xs bg-slate-700 text-slate-300 px-2 py-1 rounded">React</span>
+                                    <span class="text-xs bg-slate-700 text-slate-300 px-2 py-1 rounded">Node.js</span>
+                                    <span class="text-xs bg-slate-700 text-slate-300 px-2 py-1 rounded">Chart.js</span>
+                                </div>
+                                <div class="flex gap-3">
+                                    <a href="https://github.com/bitstreamofficial/CF-Analyzer.git" class="text-sm text-blue-400 hover:text-blue-300 transition-colors">
+                                        <i class="fab fa-github mr-1"></i> Code
+                                    </a>
+                                    <a href="https://cfanalyzerbit.onrender.com/" class="text-sm text-green-400 hover:text-green-300 transition-colors">
+                                        <i class="fas fa-external-link-alt mr-1"></i> Demo
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Project 6: Codeforces Tracker -->
-                    <div class="reveal-scale bg-slate-900 dark:bg-white rounded-xl shadow-2xl overflow-hidden group"
-                        style="transition-delay: 0.2s;">
-                        <img src="https://placehold.co/600x400/1e293b/e2e8f0?text=CF+Tracker&font=Inter"
-                            alt="Codeforces Tracker" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3
-                                class="text-xl font-semibold mb-2 text-primary group-hover:text-primary-light transition-colors">
-                                📈 Codeforces Tracker (In Progress)</h3>
-                            <p class="text-sm text-slate-400 dark:text-slate-600 mb-4 min-h-[80px]">
-                                Web app to track competitive programming progress on Codeforces.
-                            </p>
-                            <p class="text-sm font-semibold text-slate-300 dark:text-slate-700 mb-1">Key Features:</p>
-                            <ul
-                                class="list-disc list-inside text-xs text-slate-400 dark:text-slate-600 mb-3 min-h-[60px]">
-                                <li>Submission visualization</li>
-                                <li>AC/WA count</li>
-                                <li>Rating heatmap</li>
-                            </ul>
-                            <div class="mb-4 flex flex-wrap gap-2">
-                                <span class="text-xs bg-primary/20 text-primary px-2 py-1 rounded-full">Web Tech</span>
-                                <!-- Add specific tech when decided -->
-                            </div>
-                            <div class="flex justify-between items-center mb-3">
-                                <div class="space-x-3">
-                                    <a href="https://github.com/bitstreamofficial/CF-Analyzer.git" target="_blank"
-                                        rel="noopener noreferrer"
-                                        class="text-secondary hover:text-secondary-light transition-colors"><i
-                                            class="fab fa-github mr-1"></i> GitHub</a>
-                                    <a href="https://cfanalyzerbit.onrender.com/" target="_blank"
-                                        rel="noopener noreferrer"
-                                        class="text-secondary hover:text-secondary-light transition-colors"><i
-                                            class="fas fa-external-link-alt mr-1"></i>
-                                        Live Demo</a>
-                                </div>
-                            </div>
+                </div>
+
+                <!-- Call to Action -->
+                <div class="text-center mt-20">
+                    <div class="inline-flex items-center gap-4 p-8 bg-gradient-to-r from-slate-800/50 to-slate-700/50 backdrop-blur-sm border border-slate-600/50 rounded-2xl">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-2">Interested in my work?</h3>
+                            <p class="text-slate-400 mb-4">Let's discuss how we can work together on your next project</p>
+                            <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300">
+                                <i class="fas fa-handshake"></i>
+                                Let's Collaborate
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -891,17 +1064,68 @@
             <div class="container mx-auto px-6">
                 <div class="reveal text-center mb-16">
                     <h2 class="text-3xl md:text-4xl font-bold mb-4">Experience / Internships</h2>
+                    <p class="text-lg text-slate-400 dark:text-slate-600 max-w-xl mx-auto">My professional journey and hands-on experience in the tech industry.</p>
                 </div>
-                <div class="max-w-3xl mx-auto bg-slate-800 dark:bg-white p-8 rounded-xl shadow-xl reveal-scale">
-                    <h3 class="text-2xl font-semibold mb-2 text-primary">🎨 Graphic Designer & Video Editor</h3>
-                    <p class="text-lg font-medium text-slate-300 dark:text-slate-700 mb-3">International Affairs,
-                        Daffodil International University (6-month internship)</p>
-                    <ul class="list-disc list-inside text-slate-400 dark:text-slate-600 leading-relaxed space-y-1">
-                        <li>Created visual content (graphics, videos) for international communications and university
-                            promotions.</li>
-                        <li>Learned to manage tasks under deadlines and collaborate effectively within a team
-                            environment.</li>
-                    </ul>
+                
+                <div class="space-y-8 max-w-4xl mx-auto">
+                    <!-- Current Internship: TechJays -->
+                    <div class="bg-slate-800 dark:bg-white p-8 rounded-xl shadow-xl reveal-scale border-l-4 border-green-500">
+                        <div class="flex items-center gap-3 mb-4">
+                            <h3 class="text-2xl font-semibold text-primary">💻 Software Engineering Intern</h3>
+                            <span class="inline-flex items-center px-3 py-1 bg-green-500/20 rounded-full text-green-300 text-sm font-medium">
+                                <span class="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
+                                Current
+                            </span>
+                        </div>
+                        <p class="text-lg font-medium text-slate-300 dark:text-slate-700 mb-3">
+                            TechJays (Remote) - June 2025 - Present
+                        </p>
+                        <div class="mb-4">
+                            <p class="text-slate-300 dark:text-slate-600 leading-relaxed mb-3">
+                                � Excited to be part of an amazing team of professionals working on live development projects in a real-world environment.
+                            </p>
+                        </div>
+                        <div class="mb-4">
+                            <h4 class="text-sm font-semibold text-slate-300 dark:text-slate-700 mb-2">Key Responsibilities:</h4>
+                            <ul class="list-disc list-inside text-slate-400 dark:text-slate-600 leading-relaxed space-y-1 text-sm">
+                                <li>Contributing to live development projects</li>
+                                <li>Remote collaboration with experienced developers</li>
+                                <li>Writing clean, maintainable, and efficient code</li>
+                                <li>Participating in code reviews and sprint planning</li>
+                                <li>Expanding knowledge across technologies and best practices</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="text-xs bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full">Remote Work</span>
+                            <span class="text-xs bg-purple-500/20 text-purple-300 px-3 py-1 rounded-full">Agile Workflow</span>
+                            <span class="text-xs bg-green-500/20 text-green-300 px-3 py-1 rounded-full">Code Reviews</span>
+                            <span class="text-xs bg-yellow-500/20 text-yellow-300 px-3 py-1 rounded-full">Sprint Planning</span>
+                            <span class="text-xs bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full">Live Projects</span>
+                        </div>
+                    </div>
+
+                    <!-- Previous Internship: DIU -->
+                    <div class="bg-slate-800 dark:bg-white p-8 rounded-xl shadow-xl reveal-scale">
+                        <div class="flex items-center gap-3 mb-4">
+                            <h3 class="text-2xl font-semibold text-primary">🎨 Graphic Designer & Video Editor</h3>
+                            <span class="inline-flex items-center px-3 py-1 bg-slate-500/20 rounded-full text-slate-300 text-sm font-medium">
+                                Completed
+                            </span>
+                        </div>
+                        <p class="text-lg font-medium text-slate-300 dark:text-slate-700 mb-3">
+                            International Affairs, Daffodil International University (6-month internship)
+                        </p>
+                        <ul class="list-disc list-inside text-slate-400 dark:text-slate-600 leading-relaxed space-y-1">
+                            <li>Created visual content (graphics, videos) for international communications and university promotions.</li>
+                            <li>Learned to manage tasks under deadlines and collaborate effectively within a team environment.</li>
+                            <li>Developed skills in creative design and multimedia content creation.</li>
+                        </ul>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="text-xs bg-pink-500/20 text-pink-300 px-3 py-1 rounded-full">Graphic Design</span>
+                            <span class="text-xs bg-red-500/20 text-red-300 px-3 py-1 rounded-full">Video Editing</span>
+                            <span class="text-xs bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full">Team Collaboration</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
